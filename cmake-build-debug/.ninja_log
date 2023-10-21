@@ -1,0 +1,7 @@
+# ninja log v5
+1	1878	7196037511155148	CMakeFiles/Ants.dir/main.cpp.obj	2200874675762bb7
+1	2533	7196040106820587	build.ninja	22a218f9113110d
+9	1546	7196040220185916	CMakeFiles/Ants.dir/Renderer.cpp.obj	919045628effdbe0
+16	1307	7196040120581925	CMakeFiles/Ants.dir/Agent.cpp.obj	7a3a7e078f463a18
+4	1276	7196040389050863	CMakeFiles/Ants.dir/Environment.cpp.obj	ae6f52717878828c
+4	55	7196040444675297	CMakeFiles/Ants.dir/Timer.cpp.obj	3fd791f3efa5287d

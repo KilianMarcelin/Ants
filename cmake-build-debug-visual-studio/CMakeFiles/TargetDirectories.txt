@@ -1,0 +1,3 @@
+C:/Users/kilia/CLionProjects/Ants/cmake-build-debug-visual-studio/CMakeFiles/Ants.dir
+C:/Users/kilia/CLionProjects/Ants/cmake-build-debug-visual-studio/CMakeFiles/edit_cache.dir
+C:/Users/kilia/CLionProjects/Ants/cmake-build-debug-visual-studio/CMakeFiles/rebuild_cache.dir

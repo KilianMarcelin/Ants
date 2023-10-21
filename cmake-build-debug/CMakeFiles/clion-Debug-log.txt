@@ -1,0 +1,45 @@
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -DCMAKE_TOOLCHAIN_FILE=C:\Users\kilia\.vcpkg-clion\vcpkg\scripts\buildsystems\vcpkg.cmake -G Ninja -S C:\Users\kilia\CLionProjects\Ants -B C:\Users\kilia\CLionProjects\Ants\cmake-build-debug
+-- Running vcpkg install
+Detecting compiler hash for triplet x64-windows...
+The following packages will be built and installed:
+    sdl2-gfx:x64-windows -> 1.0.4#10 -- C:\Users\kilia\.vcpkg-clion\vcpkg\buildtrees\versioning_\versions\sdl2-gfx\6799c7e90f7c606835a0544db0852f31dbf99cbb
+Restored 1 package(s) from C:\Users\kilia\AppData\Local\vcpkg\archives in 44.7 ms. Use --debug to see more details.
+Installing 1/1 sdl2-gfx:x64-windows...
+Elapsed time to handle sdl2-gfx:x64-windows: 14.1 ms
+Total install time: 14.2 ms
+sdl2 provides CMake targets:
+
+    find_package(SDL2 CONFIG REQUIRED)
+    target_link_libraries(main
+        PRIVATE
+        $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
+        $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
+    )
+
+sdl2-gfx provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(sdl2-gfx CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE SDL2::SDL2_gfx)
+
+-- Running vcpkg install - done
+CMake Error at C:/Users/kilia/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:859 (_find_package):
+  By not providing "FindSDL2_gfx.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "SDL2_gfx",
+  but CMake did not find one.
+
+  Could not find a package configuration file provided by "SDL2_gfx" with any
+  of the following names:
+
+    SDL2_gfxConfig.cmake
+    sdl2_gfx-config.cmake
+
+  Add the installation prefix of "SDL2_gfx" to CMAKE_PREFIX_PATH or set
+  "SDL2_gfx_DIR" to a directory containing one of the above files.  If
+  "SDL2_gfx" provides a separate development package or SDK, be sure it has
+  been installed.
+Call Stack (most recent call first):
+  CMakeLists.txt:27 (find_package)
+
+
+-- Configuring incomplete, errors occurred!

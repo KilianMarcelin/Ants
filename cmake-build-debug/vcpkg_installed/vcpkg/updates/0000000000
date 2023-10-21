@@ -1,0 +1,9 @@
+Package: sdl2-gfx
+Version: 1.0.4
+Port-Version: 10
+Depends: sdl2, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 699b271c5ca3a651d39e241f901144c753a5d1f3573e4a0474c1f1f778c2d22e
+Description: Graphics primitives (line, circle, rectangle etc.) with AA support, rotozoomer and other drawing related support functions wrapped up in a C based add-on library for the Simple Direct Media (SDL) cross-platform API layer.
+Status: install ok half-installed

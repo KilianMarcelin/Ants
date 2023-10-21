@@ -1,0 +1,12 @@
+{
+  "name" : "ants",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "5c82f7e6372c9b0ea25e1fd829dd50235ef37629",
+  "dependencies" : [ {
+    "name" : "sdl2",
+    "version>=" : "2.28.4#1"
+  }, {
+    "name" : "sdl2-gfx",
+    "version>=" : "1.0.4#10"
+  } ]
+}
