@@ -11,7 +11,7 @@ class SillyAnt : public AntBase{
 
 private:
 	bool m_retour;
-
+    int timeBeforeControl = 20;
 public:
 
 	SillyAnt(Environment * environment, Anthill * fourmiliere, int dureeVie) :
@@ -33,14 +33,18 @@ public:
 			float dist = this->getPosition().distance(posFood);
 			if(dist < seenFood[0]->getRadius()){
 				getFood(seenFood[0]);
-				m_retour = true;
+                m_retour = true;
 			}
 		}
 	}
 
 	void update() {
 
-		foodControl();
+        if(timeBeforeControl > 0) timeBeforeControl--;
+        else {
+            foodControl();
+            timeBeforeControl = 20;
+        }
 
 		checkLife();
 		if(!m_retour){

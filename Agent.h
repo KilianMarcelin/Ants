@@ -39,18 +39,20 @@ public:
 	}
 
 	static void simulate(){
+        if (!m_agents.empty()) {
+            for (auto i = m_agents.begin(); i != m_agents.end();) {
+                if ((*i)->getStatus() == running) {
+                    (*i)->update();
+                    ++i;  // Avancez l'itérateur s'il n'y a pas d'effacement
+                } else {
+                    delete (*i);
+                    i = m_agents.erase(i);  // Supprime l'élément et met à jour l'itérateur
+                }
+            }
+        }
 
-		for(std::set<Agent*>::iterator i = m_agents.begin(); i != m_agents.end(); ++i){
-			if((*i)->getStatus()==running){
-				(*i)->update();
-			}
-			else{
-				m_agents.erase(*i);
-				delete(*i);
-			}
-		}
-	    // std::cout << "Agent count: " << s_agents.size() << std::endl;
-	}
+        std::cout<<m_agents.size()<<std::endl;
+    }
 	static void finalize(){
 		std::set<Agent*>::iterator i;
 		for(i = m_agents.begin(); i!=m_agents.end();i++){

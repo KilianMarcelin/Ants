@@ -40,7 +40,7 @@ void onKeyPressed(char key, Environment * environment)
 	else if(key == 'a'){
 		Vector2<float> p = environment->randomPosition();
 		Anthill * hill = new Anthill(environment, p);
-		for (int i = 0; i < 5; ++i) {
+		for (int i = 0; i < 10; ++i) {
 			new AntBasePheromone(environment, hill, 2000);
 		}
 	}

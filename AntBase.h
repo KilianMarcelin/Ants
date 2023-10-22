@@ -19,7 +19,7 @@ protected:
 public:
 
 	AntBase(Environment * environment, Anthill * fourmiliere, int dureeVie) :
-		Agent(environment, fourmiliere->getPosition(), 2)
+		Agent(environment, fourmiliere->getPosition(), 1)
 		{
 			m_dureeVie = dureeVie;
 			m_fourmiliere = fourmiliere;
@@ -63,7 +63,7 @@ public:
 	}
 
 	std::vector<Food*> see(){
-		std::vector<Food*> seenFood = perceive<Food>(m_direction, MathUtils::pi/2, 100.0f);
+		std::vector<Food*> seenFood = perceive<Food>(m_direction, MathUtils::pi/2, 20.0f);
 		return seenFood;
 	}
 

@@ -14,7 +14,7 @@ class AntBasePheromone  : public AntBase{
 
 private:
 	bool m_retour;
-
+    int timeBeforeControl = 20;
 public:
 
 	AntBasePheromone(Environment * environment, Anthill * fourmiliere, int dureeVie) :
@@ -43,7 +43,11 @@ public:
 
 	void update() {
 
-		foodControl();
+        if(timeBeforeControl > 0) timeBeforeControl--;
+        else {
+            foodControl();
+            timeBeforeControl = 20;
+        }
 
 		checkLife();
 		if(!m_retour){
@@ -69,14 +73,14 @@ public:
 					m_retour = false;
 				}
 		}
-		putPheromone(20);
+		putPheromone(10);
 		move();
 		render();
 
 	}
 
 	Pheromone * choosePheromone(){
-		std::vector<Pheromone*> seenPher = perceive<Pheromone>(m_direction, MathUtils::pi/2, 8.0f);
+		std::vector<Pheromone*> seenPher = perceive<Pheromone>(m_direction, MathUtils::pi/2, 2.0f);
 		if(seenPher.size()>0){
 			std::vector<float> weights;
 			for (int i = 0; i < seenPher.size(); ++ i) {
