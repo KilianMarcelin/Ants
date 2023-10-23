@@ -55,10 +55,9 @@ public:
     }
 	static void finalize(){
 		std::set<Agent*>::iterator i;
-		for(i = m_agents.begin(); i!=m_agents.end();i++){
-			m_agents.erase(*i);
+		for(i = m_agents.begin(); i!=m_agents.end();){
 			delete(*i);
-			i--;
+            i = m_agents.erase(i);
 		}
 	}
 };
