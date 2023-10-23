@@ -15,6 +15,7 @@ class AntBasePheromone  : public AntBase{
 private:
 	bool m_retour;
     int timeBeforeControl = 20;
+    int timeBeforePher = 4;
 public:
 
 	AntBasePheromone(Environment * environment, Anthill * fourmiliere, int dureeVie) :
@@ -42,17 +43,18 @@ public:
 	}
 
 	void update() {
-
+        std::vector<Pheromone*> seenPher;
         if(timeBeforeControl > 0) timeBeforeControl--;
         else {
             foodControl();
             timeBeforeControl = 20;
+            seenPher = perceive<Pheromone>(m_direction, MathUtils::pi/2, 8.0f);
         }
 
 		checkLife();
 		if(!m_retour){
 
-			Pheromone * pher = choosePheromone();
+			Pheromone * pher = choosePheromone(seenPher);
 			 if(pher != NULL){
 				 Vector2<float> posPher = pher->getPosition();
 				 lookAt(posPher);
@@ -73,14 +75,19 @@ public:
 					m_retour = false;
 				}
 		}
-		putPheromone(10);
+        if(timeBeforePher > 0) timeBeforePher--;
+        else {
+            if(m_retour) putPheromone(250, seenPher);
+            else putPheromone(20, seenPher);
+            timeBeforePher = 4;
+        }
+
 		move();
 		render();
 
 	}
 
-	Pheromone * choosePheromone(){
-		std::vector<Pheromone*> seenPher = perceive<Pheromone>(m_direction, MathUtils::pi/2, 2.0f);
+	Pheromone * choosePheromone(std::vector<Pheromone*> seenPher){
 		if(seenPher.size()>0){
 			std::vector<float> weights;
 			for (int i = 0; i < seenPher.size(); ++ i) {
@@ -95,8 +102,7 @@ public:
 		}
 	}
 
-	void putPheromone(float q){
-		std::vector<Pheromone*> onPheromone = perceive<Pheromone>();
+	void putPheromone(float q, std::vector<Pheromone*> onPheromone){
 		if(onPheromone.size() > 0){
 			onPheromone[0]->addQuantity(q);
 		}else{

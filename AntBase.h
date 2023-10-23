@@ -63,7 +63,7 @@ public:
 	}
 
 	std::vector<Food*> see(){
-		std::vector<Food*> seenFood = perceive<Food>(m_direction, MathUtils::pi/2, 20.0f);
+		std::vector<Food*> seenFood = perceive<Food>(m_direction, MathUtils::pi/2, 25.0f);
 		return seenFood;
 	}
 

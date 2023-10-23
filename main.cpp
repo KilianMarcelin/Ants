@@ -13,8 +13,8 @@
 #include "SillyAnt.h"
 #include "AntBasePheromone.h"
 
-static unsigned int windowWidth() { return 1024; }
-static unsigned int windowHeight() { return 700; }
+static unsigned int windowWidth() { return 300; }
+static unsigned int windowHeight() { return 300; }
 
 /// <summary>
 /// called each time a key is pressed.
@@ -41,7 +41,7 @@ void onKeyPressed(char key, Environment * environment)
 		Vector2<float> p = environment->randomPosition();
 		Anthill * hill = new Anthill(environment, p);
 		for (int i = 0; i < 10; ++i) {
-			new SillyAnt(environment, hill, 2000);
+			new AntBasePheromone(environment, hill, 100);
 		}
 	}
 }
